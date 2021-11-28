@@ -75,9 +75,26 @@ def install_httpd():
 	yum_install("httpd")
 	
 
+def install_chrome():
+	data = r"""
+[google-chrome]
+name=google-chrome
+baseurl=http://dl.google.com/linux/chrome/rpm/stable/$basearch
+enabled=1
+gpgcheck=1
+gpgkey=https://dl-ssl.google.com/linux/linux_signing_key.pub
+"""
+	change_dir(r"/")
+	change_dir(r"/etc/yum.repos.d")
+	file_maker("chrome.repo", "w", data)
+
+	yum_install("google-chrome-stable")
+	run_cmd("yum update google-chrome-stable")
+	
 
 run_cmd("tput setaf 45")
 run_cmd("figlet Auto-Installtion")
+install_chrome()
 #configure_yum_repo()
 #config_epel()
 #config_docker()
