@@ -1,7 +1,7 @@
 import os
 import subprocess as sp
 
-def run_cmd(command): 
+def run_cmd(command):
 	""" will run os based commands """
 	os.system(command)
 
@@ -10,11 +10,11 @@ def file_maker(file_name, mode, data):
 
 	fptr = open(file_name, mode)
 	fptr.write(data)
-	fptr.close()  
+	fptr.close()
 
-def change_dir(dir_path): 
+def change_dir(dir_path):
 	""" To Change Dir """
-	
+
 	os.chdir(dir_path)
 
 def configure_yum_repo():
@@ -47,7 +47,7 @@ def config_docker():
 baseurl=https://download.docker.com/linux/centos/7/x86_64/stable/
 gpgcheck=0
 """)
-	
+
 	change_dir(r"/")
 	change_dir(r"/etc/yum.repos.d")
 	file_maker("docker.repo", "w", data)
@@ -73,7 +73,7 @@ def install_depen():
 
 def install_httpd():
 	yum_install("httpd")
-	
+
 
 def install_chrome():
 	data = r"""
@@ -90,13 +90,12 @@ gpgkey=https://dl-ssl.google.com/linux/linux_signing_key.pub
 
 	yum_install("google-chrome-stable")
 	run_cmd("yum update google-chrome-stable")
-	
+
 
 run_cmd("tput setaf 45")
 run_cmd("figlet Auto-Installtion")
-install_chrome()
+#install_chrome()
 #configure_yum_repo()
 #config_epel()
 #config_docker()
 #install_depen()
-
