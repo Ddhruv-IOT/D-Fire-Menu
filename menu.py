@@ -1,5 +1,5 @@
-import newmenu
-from newmenu import run_cmd
+import functions
+from functions import run_cmd
 import getpass
 
 passwd = getpass.getpass("enter ur password :" )
