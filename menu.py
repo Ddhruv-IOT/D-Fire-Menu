@@ -19,6 +19,7 @@ if x == '1':
 elif x == '2':
     run_cmd("atom --no-sandbox&")
 
+
 #install_chrome()
 #configure_yum_repo()
 #config_epel()
