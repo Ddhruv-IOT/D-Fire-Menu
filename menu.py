@@ -31,6 +31,21 @@ def main():
             run_cmd("atom --no-sandbox&")
         elif x == '3':
             run_cmd("date")
+        elif x == '4':
+            while 1:
+                print("""
+                1. for installing chrome
+                2. for configuring yum
+                3. for
+                4. for
+                * to go back to main menu """)
+                x = input("Enter ur choice")
+                if x == '1':
+                    functions.install_chrome()
+                elif x == '2':
+                    functions.configure_yum_repo()
+                elif x == '*':
+                    break
         else:
             break
 
