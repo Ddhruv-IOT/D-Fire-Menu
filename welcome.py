@@ -1,7 +1,7 @@
 import time
 import os
 
-def logo():
+def welcome():
 	print("""\033[0;31m
 
 ░░░██╗░██╗░  ██████╗░░░░  ██╗░░░░░██╗███╗░░██╗██╗░░░██╗██╗░░██╗  ███╗░░░███╗███████╗███╗░░██╗██╗░░░██╗
@@ -35,5 +35,3 @@ def logo():
 		print(i, end=' ', flush=True)
 		time.sleep(0.2)
 	print()
-#print(""" Starting.... """)
-logo()
