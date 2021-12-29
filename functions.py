@@ -91,10 +91,3 @@ gpgkey=https://dl-ssl.google.com/linux/linux_signing_key.pub
 
 	yum_install("google-chrome-stable")
 	run_cmd("yum update google-chrome-stable")
-
-
-#install_chrome()
-#configure_yum_repo()
-#config_epel()
-#config_docker()
-#install_depen()
