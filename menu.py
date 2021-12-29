@@ -75,6 +75,7 @@ def main():
         Press 3 to setup EPEL repo
         Press 4 to config docker
         Press 5 to install dependencies for Guest Additions
+        Press 6 to install Apache Server
         Press * to go back to main menu\n""")
 
                 x = input("Enter your choice: ")
@@ -88,6 +89,8 @@ def main():
                     functions.config_docker()
                 elif x == '5':
                     functions.install_depen()
+                elif x == '6':
+                    functions.install_httpd()
                 elif x == '*':
                     break
         else:
