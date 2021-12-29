@@ -1,4 +1,5 @@
 import time
+import os
 
 def logo():
 	print("""\033[0;31m
@@ -11,6 +12,20 @@ def logo():
 ░╚═╝░╚═╝░░░  ╚═════╝░╚═╝  ╚══════╝╚═╝╚═╝░░╚══╝░╚═════╝░╚═╝░░╚═╝  ╚═╝░░░░░╚═╝╚══════╝╚═╝░░╚══╝░╚═════╝░
 """)
 
+	x = ["/", "-", "|", "\\"]
+	for i in range(10):
+		for i in x:
+			print("""Starting....... """, end=" ")
+			print(f"{i}", end="")
+			time.sleep(0.1)
+			print(end="\r")
+	print("""Starting.... """,)
+
+	m =["System Started", "Processing....", "Ok!", ".....", "All Set!!!", "Welcome User"]
+	for i in m:
+		print(f"[🌟]{i}")
+		time.sleep(0.8)
+
 	x = """\t Advanced Python Menu For Linux Users\n
 
                     DEVELOPER/[S]
@@ -20,5 +35,5 @@ def logo():
 		print(i, end=' ', flush=True)
 		time.sleep(0.2)
 	print()
-
+#print(""" Starting.... """)
 logo()
