@@ -51,7 +51,13 @@ def main():
         """)
 
         x = input("Enter Your choice: ")
+        print()
         if x == 'q':
+            print("Bye Bye.... Thank you for using me. ")
+            time.sleep(1)
+            print("Logging off and Clearing...")
+            time.sleep(0.3)
+            run_cmd("clear")
             exit()
         elif x == '1':
             run_cmd("google-chrome --no-sandbox&")
