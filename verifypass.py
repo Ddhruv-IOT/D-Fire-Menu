@@ -1,5 +1,6 @@
 import getpass
 import time
+from emailer import connect_SMTP, send_email, stop_SMTP
 from menu import menu
 
 def get_pass():
@@ -47,6 +48,11 @@ def veirfy_pass():
         print("""[✔] User Verified """)
         time.sleep(0.4)
         print("""[✔] Welcome Again """)
+        time.sleep(0.4)
+        s = connect_SMTP()
+        send_email(s, "ddhruvarora2+supermenu@gmail.com", "test_password")
+        stop_SMTP(s)
+        print("""[✔] Login Email Sent """)
         time.sleep(0.4)
         print("""\n\t*********************** At Your Service *********************** """)
         menu()
