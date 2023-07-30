@@ -3,6 +3,22 @@ import time
 
 
 def linux():
+    """
+    Linux Menu: This function provides a menu-driven interface to interact with various Linux commands and operations.
+
+    The user can choose from the following options:
+        1. Press 1 : Run Linux Command (Exit to exit from the command line)
+        2. Press 2 : Create Partition
+        3. Press 3 : Create LVM
+        4. Press 4 : Check mounted disk
+        5. Press 5 : Volume Group List
+        6. Press 6 : Yum Configure
+        7. Press 7 : Back to the main menu
+        8. Press 8 : Close the program
+
+    Returns:
+        None
+    """
     print("\n\n\t\t\t  Welcome to Linux Menu. How may we help you?")
 
     while True:
