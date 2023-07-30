@@ -35,7 +35,7 @@ def web():
         ch = input("\nEnter your choice: ")
         os.system("tput setaf 3")
 
-        if ch == '1':
+        if ch == "1":
             x = sp.getstatusoutput("rpm -q httpd")
             if x[0] != 0:
                 os.system("yum install httpd")
@@ -44,25 +44,25 @@ def web():
                 print("\nAlready installed ")
                 sleep(2)
 
-        elif ch == '2':
+        elif ch == "2":
             page = input("\nEnter name of html page: ")
             os.system(f"vim /var/www/html/{page}.html")
             print("\nWeb Page created successfully")
             sleep(2)
 
-        elif ch == '3':
+        elif ch == "3":
             os.system("systemctl start httpd")
             print("\nYour service has been started")
             sleep(2)
 
-        elif ch == '4':
+        elif ch == "4":
             os.system("systemctl stop httpd")
             print("\nYour service has been stopped")
             sleep(2)
 
-        elif ch == '5':
+        elif ch == "5":
             break
-        
+
         elif ch == "6":
             exit()
 
