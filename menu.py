@@ -1,100 +1,48 @@
-import functions
 from functions import run_cmd
-from welcome import welcome
-import getpass
-import time
+from aws import aws
+from docker import docker
+from lnx import linux
+from httpd import web
+from intialSetup import initial_setup
 
-def get_pass():
-    passwd = getpass.getpass("Enter your password: ")
-    return passwd
-
-def veirfy_pass():
-    passwd = get_pass()
-    if passwd == 'q':
-        exit()
-
-    print()
-    x = ["/", "-", "|", "\\"]
-    for i in range(5):
-        for i in x:
-            print("""Verifying User ....... """, end=" ")
-            print(f"{i}", end="")
-            time.sleep(0.1)
-            print(end="\r")
-    print("""Verifying User ....... """,end="\n")
-
-    if passwd != "ss":
-        print("""[❌] Invalid Password""")
-        time.sleep(0.4)
-        print("""[❌] Login Failed""")
-        time.sleep(0.4)
-        print("""[❌] Try again or Enter 'q' to exit""")
-        print()
-        veirfy_pass()
-    else:
-        print("""[✔] User Verified """)
-        time.sleep(0.4)
-        print("""[✔] Welcome Again """)
-        time.sleep(0.4)
-        print("""\n\t*********************** At Your Service *********************** """)
-        main()
-
-def main():
-    while 1:
-        print("""
-        Press 1 to open Chrome
-        Press 2 to open Atom
-        Press 3 to run date command
-        Press 4 to run cal command
-        Press 5 to get set-up and config menu
-        Press q to exit
-        """)
-
-        x = input("Enter Your choice: ")
-        print()
-        if x == 'q':
-            print("Bye Bye.... Thank you for using me. ")
-            time.sleep(1)
-            print("Logging off and Clearing...")
-            time.sleep(0.3)
-            run_cmd("clear")
-            exit()
-        elif x == '1':
-            run_cmd("google-chrome --no-sandbox&")
-        elif x == '2':
-            run_cmd("atom --no-sandbox&")
-        elif x == '3':
+def menu():
+    while True:
+        print('''
+        Press 1 To open Chrome
+        Press 2 To open Atom Editor
+        Press 3 To get initail Setup & Guest Additions
+        Press 4 Manage Amazon Web Service
+        Press 5 Manage Docker
+        Press 6 Manage Linux & Partitions
+        Press 7 Manage Web Configuration
+        Press 8 Get Current Date 
+        Press 9 Get Calendar
+        Press 0 Exit
+        ''')
+        i = input("\nEnter Your Choice: ")
+        if i == "1":
+            run_cmd("google-chrome --no-sandbox &")
+        elif i == "2":
+            run_cmd("atom --no-sandbox &")
+        elif i == "3":
+            initial_setup()
+        elif i == "4":
+            aws()
+        elif i == "5":
+            docker()
+        elif i == "6":
+            linux()
+        elif i == "7":
+            web()
+        elif i == "8":
             run_cmd("date")
-        elif x == '4':
+        elif i == "9":
             run_cmd("cal")
-        elif x == '5':
-            while 1:
-                print("""
-        Press 1 to setup chrome browser
-        Press 2 to config yum repo
-        Press 3 to setup EPEL repo
-        Press 4 to config docker
-        Press 5 to install dependencies for Guest Additions
-        Press 6 to install Apache Server
-        Press * to go back to main menu\n""")
-
-                x = input("Enter your choice: ")
-                if x == '1':
-                    functions.install_chrome()
-                elif x == '2':
-                    functions.configure_yum_repo()
-                elif x == '3':
-                    functions.config_epel()
-                elif x == '4':
-                    functions.config_docker()
-                elif x == '5':
-                    functions.install_depen()
-                elif x == '6':
-                    functions.install_httpd()
-                elif x == '*':
-                    break
+        elif i == "0":
+            print("Bye... Thank you for using our services! ")
+            exit()
         else:
-            continue
+            input("\n\t\t\t Invalid Input! Press Enter to Continue...")
 
-welcome()
-veirfy_pass()
+if __name__ == "__main__":
+	menu()
