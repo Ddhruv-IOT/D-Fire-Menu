@@ -1,10 +1,15 @@
 import os
 
+
 def docker():
+    """
+    Docker Menu: This function provides a simple interactive menu to perform various Docker operations.
+    """
     print("\n\n\t\t\t  Welcome to the Docker Menu. How may we help you?")
 
     while True:
-        print("""\033[0;34m
+        print(
+            """\033[0;34m
         1.  press 1 for Search image on Dockerhub.
         2.  press 2 for Download Docker image.
         3.  press 3 for List of Docker image.
@@ -16,7 +21,8 @@ def docker():
         9.  Press 9 To Remove images.
         10. press 10 To Move Back to main menu.
         11. press 11 To Exit!
-        """)
+        """
+        )
 
         x = input("\nEnter your choice: ")
         os.system("tput setaf 3")
@@ -33,24 +39,22 @@ def docker():
 
         elif x == "3":
             os.system("docker images")
-            input("\n\t\t Press enter to continue: ")          
+            input("\n\t\t Press enter to continue: ")
 
         elif x == "4":
             os.system("docker ps")
-            input("\n\t\t Press enter to continue: ")          
+            input("\n\t\t Press enter to continue: ")
 
         elif x == "5":
             os.system("docker images")
             img = input("\nEnter the image name:- ")
             name = input("\nEnter container name:- ")
             os.system("docker run -it --name {}  {}:latest".format(name, img))
-            input("\n\t\t Press enter to continue: ")          
-            
+            input("\n\t\t Press enter to continue: ")
 
         elif x == "6":
             os.system("docker ps -a")
-            input("\n\t\t Press enter to continue: ")          
-            
+            input("\n\t\t Press enter to continue: ")
 
         elif x == "7":
             os.system("docker ps -a")
@@ -69,19 +73,18 @@ def docker():
                 a = input("Enter your choice:- ")
 
                 if a == "1":
-                  
                     os.system("docker ps -a")
                     x = input("\nEnter ID or container name:- ")
                     os.system("docker rm {}".format(x))
                     os.system("docker ps -a")
-                    input("\n\t\t Press enter to continue: ")          
+                    input("\n\t\t Press enter to continue: ")
 
                 elif a == "2":
                     os.system("docker ps -a")
                     os.system("docker rm `docker ps -a -q`")
                     os.system("docker ps -a")
-                    input("\n\t\t Press enter to continue: ")          
-                    
+                    input("\n\t\t Press enter to continue: ")
+
                     os.system("tput sgr0")
 
                 elif a == "3":
@@ -91,23 +94,22 @@ def docker():
                     exit()
 
                 else:
-                    input("\n\t\t Press enter a valid choice to continue: ")          
-                    
+                    input("\n\t\t Press enter a valid choice to continue: ")
 
         elif x == "9":
-          
             os.system("docker images")
             img = input("\nEnter image name:- ")
             os.system("docker rmi -f {}".format(img))
             os.system("docker images")
 
-            input("\n\t\t Press enter to continue: ")          
-            
+            input("\n\t\t Press enter to continue: ")
 
         elif x == "10":
             break
 
         elif x == "11":
             exit()
+
+
 if __name__ == "__main__":
     docker()
